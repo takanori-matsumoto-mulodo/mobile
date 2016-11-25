@@ -115,9 +115,12 @@ func runBuild(cmd *command) (err error) {
 			return fmt.Errorf("-target=ios requires darwin host")
 		}
 		if pkg.Name != "main" {
+/*			fmt.Println("try darwinArmEnv")
 			if err := goBuild(pkg.ImportPath, darwinArmEnv); err != nil {
+				fmt.Println(err)
 				return err
-			}
+			}*/
+			fmt.Println("try darwinArm64Env")
 			return goBuild(pkg.ImportPath, darwinArm64Env)
 		}
 		nmpkgs, err = goIOSBuild(pkg)

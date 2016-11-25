@@ -23,7 +23,8 @@ func goIOSBind(pkgs []*build.Package) error {
 	if err != nil {
 		return err
 	}
-	env := darwinArmEnv
+//	env := darwinArmEnv
+	env := darwinArm64Env
 	gopath := fmt.Sprintf("GOPATH=%s%c%s", genDir, filepath.ListSeparator, os.Getenv("GOPATH"))
 	env = append(env, gopath)
 	typesPkgs, err := loadExportData(pkgs, env)
