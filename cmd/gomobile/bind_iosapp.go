@@ -82,7 +82,8 @@ func goIOSBind(pkgs []*build.Package) error {
 
 	cmd := exec.Command("xcrun", "lipo", "-create")
 
-	for _, env := range [][]string{darwinArmEnv, darwinArm64Env, darwinAmd64Env} {
+//	for _, env := range [][]string{darwinArmEnv, darwinArm64Env, darwinAmd64Env} {
+	for _, env := range [][]string{darwinArm64Env, darwinAmd64Env} {
 		env = append(env, gopath)
 		arch := archClang(getenv(env, "GOARCH"))
 		path, err := goIOSBindArchive(name, mainFile, env, fileBases)
