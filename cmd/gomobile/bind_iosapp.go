@@ -86,7 +86,10 @@ func goIOSBind(pkgs []*build.Package) error {
 	for _, env := range [][]string{darwinArm64Env, darwinAmd64Env} {
 		env = append(env, gopath)
 		arch := archClang(getenv(env, "GOARCH"))
+		fmt.Println("env:\n\t", env)
+		fmt.Println("arch:\n\t", arch)
 		path, err := goIOSBindArchive(name, mainFile, env, fileBases)
+		fmt.Println("path:\n\t", path)
 		if err != nil {
 			return fmt.Errorf("darwin-%s: %v", arch, err)
 		}
